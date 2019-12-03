@@ -1,0 +1,2 @@
+FLAG = "flag"
+COUNTER = "counter"
