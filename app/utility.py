@@ -14,7 +14,7 @@ def get_args(line: str) -> List[str]:
 
 def get_arg(mem: Dict, arg: str) -> int:
     if "not" in arg:
-        if get_arg(mem, arg.replace("not ", "")):
+        if get_arg(mem, arg.replace("not ", "")) == 0:
             return 1
         else:
             return 0
@@ -26,7 +26,7 @@ def get_arg(mem: Dict, arg: str) -> int:
 
 def make(mem: Dict, command: Command, *args) -> Any:
     if command == Command.MOV:
-        mem[args[0]] = args[1]
+        mem[args[0]] = get_arg(mem, args[1])
     elif command == Command.INC:
         mem[args[0]] = str(get_arg(mem, args[0]) + 1)
     elif command == Command.CMP:
